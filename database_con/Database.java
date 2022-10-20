@@ -15,20 +15,20 @@ public class Database {
     Connection con;
 
     public static void main(String[] args) {
-//        Database c = new Database();
-//        String firstname, lastname, phone;
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter Firstname");
-//        firstname = sc.nextLine();
-//        System.out.println("Enter Lastname");
-//        lastname = sc.nextLine();
-//        System.out.println("Enter Phone");
-//        phone = sc.nextLine();
-//        c.register(firstname, lastname, phone);
-//        try {
-//            c.getData();
-//        } catch (Exception ex) {
-//        }
+        Database c = new Database();
+        String firstname, lastname, phone;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Firstname");
+        firstname = sc.nextLine();
+        System.out.println("Enter Lastname");
+        lastname = sc.nextLine();
+        System.out.println("Enter Phone");
+        phone = sc.nextLine();
+        c.register(firstname, lastname, phone);
+        try {
+            c.getData();
+        } catch (Exception ex) {
+        }
     }
     //register driver
 
@@ -53,7 +53,6 @@ public class Database {
         } catch (Exception e) {
         }
     }
-
     public void getData() throws Exception {
         registerDriver();
         String sql = "SELECT  `firstname`, `lastname`, `phone` FROM `contacts` WHERE 1";

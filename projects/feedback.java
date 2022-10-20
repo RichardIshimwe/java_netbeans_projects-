@@ -24,13 +24,14 @@ import javax.swing.table.TableModel;
  * @author ish rich
  */
 public final class feedback extends javax.swing.JFrame {
-
+  
     /**
      * Creates new form feedback
      */
     public feedback() {
         initComponents();
         update_table();
+        button.setEnabled(false);
     }
 
     
@@ -76,6 +77,19 @@ public final class feedback extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 14)); // NOI18N
         jLabel4.setText("Email:");
 
+        email1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                email1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                email1MouseExited(evt);
+            }
+        });
+        email1.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                email1ComponentAdded(evt);
+            }
+        });
         email1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 email1ActionPerformed(evt);
@@ -264,16 +278,18 @@ public final class feedback extends javax.swing.JFrame {
         
     }
     
+    
+    
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         // TODO add your handling code here:
-        //button.setEnabled(false);
+//        button.setEnabled(false);
         checkemail check = new checkemail();
         String first_name = fn.getText();
         String last_name = ln.getText();
-        String email = email1.getText();
-        boolean emailcheck = checkemail.isValid(email);
         String gender = combo.getSelectedItem().toString();
         String coment = area.getText();
+        String email = email1.getText();
+        boolean emailcheck = checkemail.isValid(email);
         int count = coment.length();
         if(first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || coment.isEmpty())
         {
@@ -357,6 +373,31 @@ public final class feedback extends javax.swing.JFrame {
 //        }
 //        results.setVisible(true);
     }//GEN-LAST:event_buttonsendActionPerformed
+
+    private void email1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_email1ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_email1ComponentAdded
+
+    private void email1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_email1MouseClicked
+        // TODO add your handling code here:
+        
+        //JOptionPane.showMessageDialog(rootPane,"mail is clicked"); 
+        
+    }//GEN-LAST:event_email1MouseClicked
+
+    private void email1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_email1MouseExited
+        // TODO add your handling code here:
+        
+        String email = email1.getText();
+        boolean emailcheck = checkemail.isValid(email);
+        if(true == emailcheck){
+            button.setEnabled(true);
+        }else{
+            button.setEnabled(false);
+        }
+        
+        JOptionPane.showMessageDialog(rootPane,"mail is exited"); 
+    }//GEN-LAST:event_email1MouseExited
 
     /**
      * @param args the command line arguments
