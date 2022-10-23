@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projects;
+package lab2;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,10 +24,11 @@ import javax.swing.table.TableModel;
  * @author ish rich
  */
 public final class feedback extends javax.swing.JFrame {
-  
+  masterclass master = new masterclass();
     /**
      * Creates new form feedback
      */
+   Connection con;
     public feedback() {
         initComponents();
         update_table();
@@ -65,16 +66,23 @@ public final class feedback extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setForeground(new java.awt.Color(227, 167, 121));
+
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(227, 167, 121));
         jLabel1.setText("Feed Back");
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(227, 167, 121));
         jLabel2.setText("First name:");
 
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(227, 167, 121));
         jLabel3.setText("Last name:");
 
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(227, 167, 121));
         jLabel4.setText("Email:");
 
         email1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,10 +105,12 @@ public final class feedback extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(227, 167, 121));
         jLabel5.setText("Gender:");
 
         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
 
+        table.setForeground(new java.awt.Color(204, 204, 204));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -124,7 +134,9 @@ public final class feedback extends javax.swing.JFrame {
             table.getColumnModel().getColumn(5).setPreferredWidth(120);
         }
 
+        button.setBackground(new java.awt.Color(133, 70, 30));
         button.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 12)); // NOI18N
+        button.setForeground(new java.awt.Color(227, 167, 121));
         button.setText("SUBMIT");
         button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,9 +149,12 @@ public final class feedback extends javax.swing.JFrame {
         jScrollPane2.setViewportView(area);
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(227, 167, 121));
         jLabel6.setText("Comment:");
 
+        buttonsend.setBackground(new java.awt.Color(133, 70, 30));
         buttonsend.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 12)); // NOI18N
+        buttonsend.setForeground(new java.awt.Color(227, 167, 121));
         buttonsend.setText("DISPLAY RESULT");
         buttonsend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,10 +167,6 @@ public final class feedback extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -165,7 +176,7 @@ public final class feedback extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,13 +203,17 @@ public final class feedback extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -231,10 +246,7 @@ public final class feedback extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,8 +260,6 @@ public final class feedback extends javax.swing.JFrame {
 
     
     public void update_table(){
-    
-       Connection con;
         PreparedStatement insert;
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost/lab","root","");
@@ -281,21 +291,21 @@ public final class feedback extends javax.swing.JFrame {
     
     
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
-        // TODO add your handling code here:
-//        button.setEnabled(false);
-        checkemail check = new checkemail();
+       masterclass master1 = new masterclass();
+       // checkemail check = new checkemail();
         String first_name = fn.getText();
         String last_name = ln.getText();
         String gender = combo.getSelectedItem().toString();
         String coment = area.getText();
         String email = email1.getText();
-        boolean emailcheck = checkemail.isValid(email);
+        boolean emailcheck = masterclass.checkEmail(email);
+       // boolean emailcheck = checkemail.isValid(email);
         int count = coment.length();
         if(first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || coment.isEmpty())
         {
             JOptionPane.showMessageDialog(rootPane,"The form is incomplete");       
         }
-        else if(count <=10){
+        else if(count <50 || count >100){
             JOptionPane.showMessageDialog(rootPane, "The comment must range between 50 and 100 characters");
         }
         else if(false == emailcheck){
@@ -309,7 +319,6 @@ public final class feedback extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(feedback.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Connection con;
             PreparedStatement insert;
             try {
                 con = DriverManager.getConnection("jdbc:mysql://localhost/lab","root","");
@@ -322,17 +331,17 @@ public final class feedback extends javax.swing.JFrame {
                 insert.executeUpdate();
                 JOptionPane.showMessageDialog(rootPane, "updated succesful");
                 update_table();
-                
+                fn.setText("");
+                ln.setText("");
+                area.setText("");
+                email1.setText("");
+                area.setText("");
             } catch (SQLException ex) {
                 Logger.getLogger(feedback.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
-        
-        
-        
-        
-        
+  
         
     }//GEN-LAST:event_buttonActionPerformed
 
@@ -342,36 +351,19 @@ public final class feedback extends javax.swing.JFrame {
 
     private void buttonsendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonsendActionPerformed
         // TODO add your handling code here:
-        TableModel table1 = table.getModel();
+            TableModel table1 = table.getModel();
         int indexs[];
         indexs = table.getSelectedRows();
         Object[] row = new Object[6];
-        ResultPage results = new ResultPage();
-//        Object put = table1.getValueAt(indexs[3], 2);
-//        results.label.setText(put.toString());
-//        results.setVisible(true);
-        //DefaultTableModel mode12 = (DefaultTableModel)results.table.getModel();
-        //results.label.setText(table1.getValueAt(indexs[0], 0));
-        for(int i = 0; i < indexs.length; i++){
-        results.label1.setText(table1.getValueAt(indexs[i], 0).toString());
-        results.label2.setText(table1.getValueAt(indexs[i], 1).toString());
-        results.label3.setText(table1.getValueAt(indexs[i], 2).toString());
-        results.label4.setText(table1.getValueAt(indexs[i], 3).toString());
-        results.label5.setText(table1.getValueAt(indexs[i], 4).toString());
-        results.label6.setText(table1.getValueAt(indexs[i], 5).toString());
-        }
+        String id = table1.getValueAt(indexs[0], 0).toString();
+        String firstname = table1.getValueAt(indexs[0], 1).toString();
+        String secondname = table1.getValueAt(indexs[0], 2).toString();
+        String gender = table1.getValueAt(indexs[0], 3).toString();
+        String comment = table1.getValueAt(indexs[0], 4).toString();
+        String email = table1.getValueAt(indexs[0], 5).toString();
+        ResultPage results = new ResultPage(id,firstname,secondname,gender,comment,email);
         results.setVisible(true);
-//        
-//        for(int i = 0; i < indexs.length; i++){
-//            row[0] = table1.getValueAt(indexs[i], 0);
-//            row[1] = table1.getValueAt(indexs[i], 1);
-//            row[2] = table1.getValueAt(indexs[i], 2);
-//            row[3] = table1.getValueAt(indexs[i], 3);
-//            row[4] = table1.getValueAt(indexs[i], 4);
-//            row[5] = table1.getValueAt(indexs[i], 5);
-//           mode12.addRow(row);
-//        }
-//        results.setVisible(true);
+
     }//GEN-LAST:event_buttonsendActionPerformed
 
     private void email1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_email1ComponentAdded
@@ -388,15 +380,13 @@ public final class feedback extends javax.swing.JFrame {
     private void email1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_email1MouseExited
         // TODO add your handling code here:
         
-        String email = email1.getText();
-        boolean emailcheck = checkemail.isValid(email);
+       String email = email1.getText();
+       boolean emailcheck = masterclass.checkEmail(email);
         if(true == emailcheck){
-            button.setEnabled(true);
-        }else{
-            button.setEnabled(false);
-        }
-        
-        JOptionPane.showMessageDialog(rootPane,"mail is exited"); 
+           button.setEnabled(true);
+       }else{
+          button.setEnabled(false);
+       }
     }//GEN-LAST:event_email1MouseExited
 
     /**

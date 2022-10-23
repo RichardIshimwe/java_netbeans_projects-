@@ -1,12 +1,10 @@
-package projects;
+package lab21;
 import javax.swing.JOptionPane;
-public class MasterClass extends javax.swing.JFrame {
+public class lonin_page extends javax.swing.JFrame {
 String user;
 int password_length;
-boolean result1;
-    
-    
-    public MasterClass(){
+boolean result1;   
+    public lonin_page(){
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -118,33 +116,30 @@ boolean result1;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    password_length = password.getText().length();
+    String password1 = password.getText();
     user = username.getText();
     String email = user;
-    result1 = checkemail.isValid(email);
-    feedback feed = new feedback();
-    
-    
-            if(((password_length  >=8) && (password_length  <= 12)) && (true == result1) && (password.getText().equals(password.getText().toUpperCase())))
+    masterclass master = new masterclass();
+
+    //feedback feed = new feedback();
+    int length = master.getstringlength(password1);
+            if(((length  >=8) && (length  <= 12)) && (password.getText().equals(password.getText().toUpperCase())))
                {
             password.setText("");  
             username.setText(""); 
             this.setVisible(false); 
-            feed.setVisible(true);
+            //feed.setVisible(true);
                }
                 else  if(username.getText().isEmpty() && password.getText().isEmpty())
                {  
          JOptionPane.showMessageDialog(rootPane,"the form con not be empty");
                }
-                else if(false == result1){
-                JOptionPane.showMessageDialog(rootPane,"invalid username");
-            }
             else if ((password_length <8) || (password_length > 12)){
         JOptionPane.showMessageDialog(rootPane,"provided password is not in range of 8 to 12");
                }
             
             else if(!(password.getText().equals(password.getText().toUpperCase()))){
-                JOptionPane.showMessageDialog(rootPane, "the pussword must be in uppercase letters");
+                JOptionPane.showMessageDialog(rootPane, "the password must be in uppercase letters");
             }
             
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -163,13 +158,13 @@ boolean result1;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MasterClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(masterclass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MasterClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(masterclass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MasterClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(masterclass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MasterClass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(masterclass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -177,7 +172,7 @@ boolean result1;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MasterClass().setVisible(true);
+                new lonin_page().setVisible(true);
             }
         });
     }
